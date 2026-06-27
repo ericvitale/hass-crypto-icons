@@ -264,7 +264,7 @@ crypto_icons_mode = 'picker';
 
 
 console.info(
-    `%c CUSTOM-CRYPTO-ICONS         \n%c Version 1.5.0 [` + crypto_icons_mode + `] `,
+    `%c CUSTOM-CRYPTO-ICONS         \n%c Version 1.5.1 [` + crypto_icons_mode + `] `,
     "color: orange; font-weight: bold; background: black",
     "color: white; font-weight: bold; background: dimgray"
 );
