@@ -248,23 +248,23 @@ async function getIconList() {
     return Object.keys(CRYPTO_ICONS_MAP).map(icon => ({name: icon}));
 }
 
+// Register against both icon APIs for maximum compatibility:
+//  - customIcons (HA 2021.11+): supports getIcon + getIconList, enables the icon picker
+//  - customIconsets (legacy): fallback for older frontends
 let crypto_icons_mode = 'legacy';
 
-if (!window.frontendVersion || window.frontendVersion <= 20211027.0){
-    // new enough to support customIconsets
-    crypto_icons_mode = 'modern';
-    window.customIconsets = window.customIconsets || {};
-    window.customIconsets["crypto"] = getIcon;
-}else{
-    // new enough to support getIcon and getIconlist
-    crypto_icons_mode = 'picker';
-    window.customIcons = window.customIcons || {};
-    window.customIcons["crypto"] = { getIcon, getIconList };
-}
+// Legacy fallback — harmless on modern frontends, which ignore it.
+window.customIconsets = window.customIconsets || {};
+window.customIconsets["crypto"] = getIcon;
+
+// Modern API with picker support.
+window.customIcons = window.customIcons || {};
+window.customIcons["crypto"] = { getIcon, getIconList };
+crypto_icons_mode = 'picker';
 
 
 console.info(
-    `%c CUSTOM-CRYPTO-ICONS         \n%c Version 1.3.0 [` + crypto_icons_mode + `] `,
+    `%c CUSTOM-CRYPTO-ICONS         \n%c Version 1.5.0 [` + crypto_icons_mode + `] `,
     "color: orange; font-weight: bold; background: black",
     "color: white; font-weight: bold; background: dimgray"
 );
