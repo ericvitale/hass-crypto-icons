@@ -13,11 +13,17 @@ Request for other icons are welcome, refer below.
 
 ## <a name="installation"></a>Installation
 
-Hass-crypto-icons has not yet been accepted into the [Home Assistant Community Store (HACS)](https://hacs.xyz). 
-Pleasae STAR this repository as it increases the chances it wil be added !
+### HACS (recommended):
 
-### HACS:
-Not Yet, please STAR this repository so it might get added to the default HACS repositories !
+This can be installed through HACS as a **custom repository**:
+
+1. In Home Assistant, go to **HACS**.
+2. Click the **⋮** menu (top right) -> **Custom repositories**.
+3. Add the repository URL `https://github.com/ericvitale/hass-crypto-icons` and select **Dashboard** (a.k.a. *Plugin* / *Lovelace*) as the category.
+4. Click **Add**, then find **Hass Crypto Icons** in the list and click **Download**.
+5. HACS will add the resource automatically. Restart Home Assistant and hard-refresh your browser (CTRL-F5).
+
+> This repository is not yet in the default HACS store — please STAR it to help it get added!
 
 
 ### Manual:
